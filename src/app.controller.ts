@@ -9,14 +9,4 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-
-  @Get("/companies")
-  companies(): string {
-    return this.appService.companies();
-  }
-
-  @Get("/stations")
-  stations(): string {
-    return this.appService.stations();
-  }
 }
