@@ -62,8 +62,7 @@ Your API should support CRUD for both stations and companies.
 Implement an endpoint that gets all charging stations.
 * Within the radius of n kilometers from a point (latitude, longitude), your station list is ordered by increasing distance, and stations in the
 same location are grouped.
-* Your list includes all the children stations in the tree, for the given company_
-id.
+* Your list includes all the children stations in the tree, for the given company_id.
 
 ## Requirements
 * Code is maintainable
