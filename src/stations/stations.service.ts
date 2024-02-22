@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { CreateStationDto } from './dto/create-station.dto';
 import { UpdateStationDto } from './dto/update-station.dto';
 import { Station } from './entities/station.entity';
@@ -40,12 +40,12 @@ export class StationsService {
         await this.stationsRepository.save(stationToUpdate);
 
       return { success: true, data: updatedStation };
-    } catch (error) {
-      return { success: false, message: 'Error updating item' };
+    } catch (err) {
+      return err;
     }
   }
 
-  async remove(id: number): Promise<void> {
-    await this.stationsRepository.delete(id);
+  async remove(id: number): Promise<DeleteResult> {
+    return await this.stationsRepository.delete(id);
   }
 }
