@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Company } from 'src/companies/entities/company.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Station {
@@ -16,4 +17,7 @@ export class Station {
 
   @Column()
   address: string;
+
+  @ManyToOne(() => Company, (company) => company.stations, { eager: true })
+  company: Company;
 }

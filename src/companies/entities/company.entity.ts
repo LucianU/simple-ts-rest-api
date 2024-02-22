@@ -2,12 +2,10 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  /*
+  //ManyToOne,
   OneToMany,
-  ManyToOne,
-  */
 } from 'typeorm';
-//import { Station } from '../../stations/entities/station.entity';
+import { Station } from 'src/stations/entities/station.entity';
 
 @Entity()
 export class Company {
@@ -18,15 +16,15 @@ export class Company {
   name: string;
 
   /*
-  @ManyToOne(() => Company, (parent) => parent.childCompanies, {
+  @ManyToOne(() => Company, (parent: Company) => parent.childCompanies, {
     nullable: true,
   })
   parentCompany: Company;
 
-  @OneToMany(() => Company, (ownedCompany) => ownedCompany.parentCompany)
+  @OneToMany(() => Company, (company) => company.parentCompany)
   childCompanies: Company[];
+  */
 
   @OneToMany(() => Station, (station) => station.company)
   stations: Station[];
-  */
 }
