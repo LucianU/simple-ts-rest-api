@@ -7,7 +7,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Virta API')
-    .setDescription('API that lets you manage companies and stations')
+    .setDescription('API that lets you manage companies and charging stations')
     .setVersion('1.0')
     .addTag('EV')
     .build();
