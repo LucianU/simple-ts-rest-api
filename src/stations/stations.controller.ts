@@ -7,8 +7,6 @@ import {
   Param,
   Delete,
   Query,
-  HttpException,
-  HttpStatus,
 } from '@nestjs/common';
 import { ApiQuery } from '@nestjs/swagger';
 import { StationsService } from './stations.service';
@@ -26,34 +24,14 @@ export class StationsController {
 
   @Get()
   @ApiQuery({
-    name: 'latitude',
+    name: 'company_id',
     type: Number,
     required: false,
-    description: 'Latitude of the location',
+    description: 'Company that owns the stations',
   })
-  @ApiQuery({
-    name: 'longitude',
-    type: Number,
-    required: false,
-    description: 'Longitude of the location',
-  })
-  @ApiQuery({
-    name: 'radius',
-    type: Number,
-    required: false,
-    description: 'Radius for station filtering',
-  })
-  findAll(
-    @Query('latitude') latitude?: number,
-    @Query('longitude') longitude?: number,
-    @Query('radius') radius?: number,
-  ) {
-    if (
-      latitude !== undefined &&
-      longitude !== undefined &&
-      radius !== undefined
-    ) {
-      throw new HttpException('Not Implemented', HttpStatus.NOT_IMPLEMENTED);
+  findAll(@Query('company_id') companyId?: number) {
+    if (companyId) {
+      return this.stationsService.getStationsByCompany(companyId);
     } else {
       return this.stationsService.findAll();
     }
