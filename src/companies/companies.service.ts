@@ -21,7 +21,9 @@ export class CompaniesService {
   }
 
   findAll(): Promise<Company[]> {
-    return this.companiesRepository.find();
+    return this.companiesRepository.find({
+      relations: ['parentCompany'],
+    });
   }
 
   findOne(id: number): Promise<Company | null> {

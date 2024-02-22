@@ -18,6 +18,6 @@ export class Station {
   @Column()
   address: string;
 
-  @ManyToOne(() => Company, (company) => company.stations, { eager: true })
+  @ManyToOne(() => Company, (company) => company.stations)
   company: Company;
 }

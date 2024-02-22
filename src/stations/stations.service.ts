@@ -20,7 +20,7 @@ export class StationsService {
     }
   }
   findAll(): Promise<Station[]> {
-    return this.stationsRepository.find();
+    return this.stationsRepository.find({ relations: ['company'] });
   }
 
   findOne(id: number): Promise<Station | null> {
