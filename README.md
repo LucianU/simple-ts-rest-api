@@ -3,36 +3,14 @@ An assignment for a job interview.
 
 
 # Setup
-## Install
-
+Use `.env.example` to make an env file:
 ```bash
-$ npm install
+$ cp .env.example .env
 ```
 
-## Run the app
-
+Use `docker-compose` to start services:
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ docker-compose up --build
 ```
 
 
