@@ -2,7 +2,7 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  //ManyToOne,
+  ManyToOne,
   OneToMany,
 } from 'typeorm';
 import { Station } from 'src/stations/entities/station.entity';
@@ -15,7 +15,6 @@ export class Company {
   @Column()
   name: string;
 
-  /*
   @ManyToOne(() => Company, (parent: Company) => parent.childCompanies, {
     nullable: true,
   })
@@ -23,7 +22,6 @@ export class Company {
 
   @OneToMany(() => Company, (company) => company.parentCompany)
   childCompanies: Company[];
-  */
 
   @OneToMany(() => Station, (station) => station.company)
   stations: Station[];
