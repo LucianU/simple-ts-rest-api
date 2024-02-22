@@ -22,7 +22,7 @@ export class CompaniesService {
 
   findAll(): Promise<Company[]> {
     return this.companiesRepository.find({
-      relations: ['parentCompany'],
+      relations: ['parentCompany', 'stations'],
     });
   }
 
