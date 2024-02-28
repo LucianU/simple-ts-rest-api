@@ -6,10 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Virta API')
+    .setTitle('Simple TS REST API')
     .setDescription('API that lets you manage companies and charging stations')
     .setVersion('1.0')
-    .addTag('EV')
+    .addTag('Demo')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
