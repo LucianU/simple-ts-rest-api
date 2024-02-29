@@ -4,6 +4,13 @@ in building a REST API with TypeScript, and creating a
 Docker setup for it.
 
 
+# Tech Stack
+* node.js
+* TypeScript
+* NestJS
+* PostgreSQL
+
+
 # Setup
 Use `.env.example` to make an env file:
 ```bash
